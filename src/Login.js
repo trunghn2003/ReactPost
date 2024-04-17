@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_DOMAIN } from "./PATH";
 function Login({ onLogin }) {
     const [creds, setCreds] = useState({});
     const [error, setError] = useState("");
     const navigate = useNavigate();
     const handleLogin = async () => {
         try {
-            const response = await fetch("http://localhost:8080/api/login", {
+            const response = await fetch(`${API_DOMAIN}/api/login`, {
                 method: "post", headers: {
                     'Accept': 'application /json',
                     'Content-Type': 'application/json'

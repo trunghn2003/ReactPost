@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { API_DOMAIN } from "./PATH";
 function NewPost() {
     const [newPost, setNewPost] = useState("");
 const {register,handleSubmit,formState: { errors },} = useForm();
 const onSubmit = async (data) => {
 const post = JSON.stringify(data);
 try {
-const response = await fetch("http://localhost:8080/api/post", {
+const response = await fetch(`${API_DOMAIN}/api/post`, {
 method: "post", headers: {
 'Accept': 'application /json',
 'Content-Type':'application/json'
